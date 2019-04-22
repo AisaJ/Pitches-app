@@ -1,6 +1,6 @@
 from flask import Flask
 
-def creat_app(config_name):
+def create_app(config_name):
   app = Flask(__name__)
 
   #Registering blueprint
