@@ -17,8 +17,8 @@ class Pitch(db.Model):
 
   id = db.Column(db.Integer,primary_key=True)
   pitch = db.Column(db.String(255))
-  category_id = db.Column(db.String(255))
-  name = db.Column(db.String(255))
+  category = db.Column(db.String(255))
+  title = db.Column(db.String(255))
   vote_count = db.Column(db.Integer)
   added_date = db.Column(db.DateTime,default=datetime.utcnow)
   author = db.Column(db.Integer,db.ForeignKey('users.id'))

@@ -19,6 +19,9 @@ def new_pitch():
 
   if form.validate_on_submit():
     title=form.title.data
+    category = form.category.data
+    pitch = form.pitch.data
+    author = form.author.data
 
     db.session.add(pitch)
     db.session.commit()
@@ -26,4 +29,4 @@ def new_pitch():
     flash('Awesome! Pitch created','success')
     return redirect(url_for('main.index',id=pitch.id))
 
-  return render_template('new_pitch.html',title='new pitch',pitch_form=form, post='new pitch')
+  return render_template('pitch.html',title='new pitch',pitch_form=form, post='new pitch')
