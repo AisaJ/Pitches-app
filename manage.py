@@ -20,7 +20,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app =  app, db = db, Pitch = Pitch)
+    return dict(app =  app, db = db, Pitch = Pitch, User= User)
 
 
 
