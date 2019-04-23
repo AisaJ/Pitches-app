@@ -1,6 +1,7 @@
 from . import main
 from flask import render_template
 from ..models import Pitch
+from flask_login import login_required
 
 
 @main.route('/')

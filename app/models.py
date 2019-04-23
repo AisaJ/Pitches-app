@@ -1,6 +1,8 @@
 from . import db
 from datetime import datetime
 from werkzueg.security import generate_password_hash,check_password_hash
+from flask_login import UserMixin
+from . import login_manager
 
 class Pitch(db.Model):
   '''
@@ -19,7 +21,7 @@ class Pitch(db.Model):
     return f'Pitch{self.pitch}'
 
 
-class Users(db.Model):
+class Users(UserMixin,db.Model):
   '''
   Defining users objects
   '''
