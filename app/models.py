@@ -1,6 +1,6 @@
 from . import db
 from datetime import datetime
-from werkzueg.security import generate_password_hash,check_password_hash
+from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
 
@@ -21,6 +21,7 @@ class Pitch(db.Model):
   name = db.Column(db.String(255))
   vote_count = db.Column(db.Integer)
   added_date = db.Column(db.DateTime,default=datetime.utcnow)
+  author = db.Column(db.Integer,db.ForeignKey('users.id'))
 
   def __repr__(self):
     return f'Pitch{self.pitch}'
