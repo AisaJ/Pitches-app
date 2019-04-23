@@ -13,3 +13,6 @@ class Pitch(db.Model):
   name = db.Column(db.String(255))
   vote_count = db.Column(db.Integer)
   added_date = db.Column(db.DateTime,default=datetime.utcnow)
+
+  def __repr__(self):
+    return f'Pitch{self.pitch}'
