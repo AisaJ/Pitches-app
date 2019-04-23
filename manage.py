@@ -1,11 +1,15 @@
 from app import create_app,db
 from app.models import Pitch
 from flask_script import Server,Manager
+from flask_migrate import Migrate, MigrateCommand
 
 #Creating an app instance
 app = create_app('development')
 
 manager = Manager(app)
+migrate = Migrate(app,db)
+manager.add_command('db',MigrateCommand)
+
 manager.add_command('server',Server)
 @manager.command
 def test():
