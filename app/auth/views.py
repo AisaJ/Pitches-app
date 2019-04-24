@@ -1,8 +1,10 @@
-from flask import render_template
+from flask import render_template,redirect,url_for,flash,request
 from . import auth
 from flask_login import login_user,logout_user,login_required
 from .forms import RegistrationForm,LoginForm
 from ..email import mail_message
+from ..models import Pitch,User
+from .. import db
 
 @auth.route('/login',methods = ['GET','POST'])
 def login():

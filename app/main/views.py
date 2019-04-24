@@ -1,7 +1,7 @@
 from . import main
-from flask import render_template,request,redirect,url_for,abort
+from flask import render_template,request,redirect,url_for,abort,flash
 from ..models import Pitch,User
-from flask_login import login_required
+from flask_login import login_required,current_user
 from .forms import PitchForm,UpdateProfile
 from .. import db
 
@@ -9,8 +9,7 @@ from .. import db
 @main.route('/')
 def index():
 
-  title = 'What can 30 seconds do for you?'
-  pitches = Pitch.query.all()
+  title = 'What can 30 seconds do for you?'  
 
   return render_template('index.html',title = title)
 
@@ -23,15 +22,17 @@ def new_pitch():
     title=form.title.data
     category = form.category.data
     pitch = form.pitch.data
-    author = form.author.data
+    author = current_user
+    new_pitch = Pitch(title=title,category=category,pitch=pitch,author=current_user._get_current_object().id)
 
-    db.session.add(pitch)
+    db.session.add(new_pitch)
     db.session.commit()
 
     flash('Awesome! Pitch created','success')
-    return redirect(url_for('main.index',id=pitch.id))
+    return redirect(url_for('main.new_pitch',id=new_pitch.id))
 
-  return render_template('pitch.html',title='new pitch',pitch_form=form, post='new pitch')
+  pitches = Pitch.query.all()
+  return render_template('pitch.html',title='new pitch',pitch_form=form, pitches=pitches)
 
 @main.route('/user/<uname>')
 def profile(uname):

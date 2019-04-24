@@ -6,8 +6,7 @@ class PitchForm(FlaskForm):
 
   title = StringField('Pitch title')
   category = SelectField("Choose Category",choices=[('Personal Brand','personal brand'),('Product','product'),('Project','project'),('Investor','investor')])
-  review = TextAreaField('Your Pitch',validators=[Required()])
-  name = StringField('Preferred name')
+  pitch = TextAreaField('Your Pitch',validators=[Required()])
   submit = SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):

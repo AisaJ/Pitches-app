@@ -1,5 +1,5 @@
 from app import create_app,db
-from app.models import Pitch
+from app.models import Pitch, User
 from flask_script import Server,Manager
 from flask_migrate import Migrate, MigrateCommand
 
