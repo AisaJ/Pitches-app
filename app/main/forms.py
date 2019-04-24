@@ -9,3 +9,7 @@ class PitchForm(FlaskForm):
   review = TextAreaField('Your Pitch',validators=[Required()])
   name = StringField('Preferred name')
   submit = SubmitField('Submit')
+
+class UpdateProfile(FlaskForm):
+  bio =TextAreaField('Short description about you.',validators=[Required()])
+  submit = SubmitField('Submit')
