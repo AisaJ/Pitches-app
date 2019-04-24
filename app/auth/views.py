@@ -1,5 +1,6 @@
 from flask import render_template
 from . import auth
+from flask_login import login_user,logout_user,login_required
 
 @auth.route('/login',methods = ['GET','POST'])
 def login():
@@ -26,3 +27,9 @@ def register():
     title = "New Account"
 
   return render_template('auth/register.html',registration_form = form)
+
+@auth.route('/logout')
+@login_required
+def logout():
+  logout_user()
+  return redirect(url_for("main.index"))
