@@ -1,0 +1,3 @@
+Hi {{user.username}}
+Welcome to Pitch's Pot
+Thank you for signing up to Pitch-Pot application. This is a booster to your brainstorming skills. Enjoy the exploration and sharing of amazing pitches!
