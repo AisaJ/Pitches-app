@@ -12,4 +12,4 @@ class PitchForm(FlaskForm):
 
 class UpdateProfile(FlaskForm):
   bio =TextAreaField('Short description about you.',validators=[Required()])
-  submit = SubmitField('Submit')
+  submit = SubmitField('Submit ')
