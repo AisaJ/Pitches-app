@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import SelectField,TextAreaField,SubmitField,StringField
-from wtforms.validators import required
+from wtforms.validators import Required
 
 class PitchForm(FlaskForm):
 

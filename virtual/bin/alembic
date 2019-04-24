@@ -1,4 +1,4 @@
-#!/home/moringaschool/Documents/mc15-core/Pitches-app/virtual/bin/python3
+#!/home/moringaschool/Documents/mc15-core/Pitches-app/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

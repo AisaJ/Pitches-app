@@ -3,7 +3,7 @@ from flask import render_template,request,redirect,url_for,abort
 from ..models import Pitch,User
 from flask_login import login_required
 from .forms import PitchForm,UpdateProfile
-from .. import db,photos
+from .. import db
 
 
 @main.route('/')
@@ -61,7 +61,7 @@ def update_profile(uname):
 
   return render_template('profile/update.html',form =form)
 
-@main.route('/user/<uname>/update/pic',methods=['GET','POST'])
+@main.route('/user/<uname>/update/pic',methods=['POST'])
 @login_required
 def update_pic(uname):
   user = User.query.filter_by(username=uname).first()
