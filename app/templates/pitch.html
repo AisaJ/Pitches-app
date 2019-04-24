@@ -9,15 +9,54 @@
 
 {% block content %}
   <div class="container-fluid">
-      <div class="row">      
-          <div class="col-md-7">
-            {% for pitch in pitches %}  
-              <p>{{pitch.pitch}}</p>
-            {% endfor %}         
+      <div class="row main">      
+          <div class="col-md-8">             
+            <div class="row pitch-section">
+              <h3 class="cats">Personal Brand</h3>
+              {% for pitch in brand %}
+              <div class="card peach-gradient color-block mb-3 mx-auto z-depth-1">
+                <h4 class="card-title">{{pitch.title}}</h4>
+                <p class="card-body">" {{pitch.pitch}}</p>
+                <p class="card-footer"></p>
+              </div>  
+              {% endfor %}
+            </div>
+            <div class="row">
+              <h3 class="cats">Product</h3>                           
+              {% for pitch in product %}
+              <div class="card peach-gradient color-block mb-3 mx-auto z-depth-1">
+                <h4 class="card-title">{{pitch.title}}</h4>
+                <p class="card-body">" {{pitch.pitch}}</p>
+                <p class="card-footer"></p>
+              </div>              
+              {% endfor %}
+            </div>
+            <div class="row">
+              <h3 class="cats">Project</h3>
+              {% for pitch in project %}
+              <div class="card peach-gradient color-block mb-3 mx-auto z-depth-1">
+                <h4 class="card-title">{{pitch.title}}</h4>
+                <p class="card-body">" {{pitch.pitch}}</p>
+                <p class="card-footer"></p>
+              </div>  
+              {% endfor %}
+            </div>
+            <div class="row">
+              <h3 class="cats">Investor</h3>
+              {% for pitch in investor %}
+              <div class="card peach-gradient color-block mb-3 mx-auto z-depth-1">
+                <h4 class="card-title">{{pitch.title}}</h4>
+                <p class="card-body">" {{pitch.pitch}}</p>
+                <p class="card-footer"></p>
+              </div>  
+              {% endfor %}
+            </div>                              
     
           </div>
-          <div class="col-md-5">
-              {{title}}
+          <div class="col-md-4">
+            <div id="pitch-title">
+              <h2>{{title}}</h2>
+            </div>              
               {{wtf.quick_form(pitch_form)}}
           </div>
         </div>  

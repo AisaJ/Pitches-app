@@ -14,13 +14,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/pitch/new">New Pitch</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Opinions</a>
-        </li>
+        </li>        
       </ul>
       
       <ul class="navbar-nav nav-flex-icons">
@@ -36,11 +30,11 @@
       </ul>
 
       {% if current_user.is_authenticated %}
-      <ul>
-         <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-        <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+      <ul id="user">
+        <li><a href="{{url_for('main.profile',uname=current_user.username)}}"><p>Profile</p></a></li>
+        <li><a href="{{url_for('auth.logout')}}"><p>Sign out</p></a></li>
         {% else %}
-        <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+        <li><a href="{{url_for('auth.login')}}"><p>Sign in</p></a></li>
         {% endif %}
       </ul>
     </div>

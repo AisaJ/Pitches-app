@@ -1,6 +1,6 @@
 body{
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5em;
+  font-size: 1.6em;
   padding: 0;
   margin: 0;
 }
@@ -9,21 +9,49 @@ body{
   padding: 1rem;
   margin-left: 14%;
   margin-right: 10%;
-  border: solid saddlebrown 2px;
+  border: solid #cd853f 2px;
   height: 25rem;
 }
 .navbar-dark{
-  background-color: saddlebrown ;
+  background-color: #cd853f ;
 }
 #intro{
   margin-top: 2%;
   font-weight: bold;  
   font-size: 2em;
-  margin-left: 20%;
+  margin-left: 30%;
 }
 #header{
   text-align: center;
 }
 .form{
   margin-top: 2%;
+}
+#pitch-title{
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: underline;
+}
+.cats{
+  text-align: center;
+  font-weight: bold;
+  clear: left;
+}
+.card-title{
+  text-decoration: underline;
+  text-align: center;
+}
+.main{
+  padding: 1%;
+}
+ul li{
+  display: inline-block;
+  padding-left: 2px;
+}
+ul li a{
+  text-decoration: none;
+  color: black;
+}
+.navbar-brand{
+  font-weight: bold;
 }

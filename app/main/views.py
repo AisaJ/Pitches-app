@@ -32,7 +32,9 @@ def new_pitch():
     return redirect(url_for('main.new_pitch',id=new_pitch.id))
 
   pitches = Pitch.query.all()
-  return render_template('pitch.html',title='new pitch',pitch_form=form, pitches=pitches)
+  brand = Pitch.query.filter_by(category='Brand').all()
+  product = Pitch.query.filter_by(category='Product').all()
+  return render_template('pitch.html',title='Add Your Pitch',pitch_form=form, pitches=pitches,brand=brand,product=product)
 
 @main.route('/user/<uname>')
 def profile(uname):
