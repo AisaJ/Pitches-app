@@ -2,7 +2,7 @@
 #### This is a web application that provides a platform for practicing pitching of ideas of different categories. Users can view and comment pitches posted and also share their own. April 25, 2019.
 #### By **Aisa Jemila**
 ## Description
-Github repository:https://pitches-3.herokuapp.com/
+Deployed on:https://pitches-3.herokuapp.com/
 This is a web application that provides platform for pitches of different categories. Users can view various pitches posted and make comment to review the pitches. Users are allowed to pitch their own pitches once they register on the application. Users receive welcome notification message once they register on the application. Users can login and log out when done with the application. The application allows users to perfect their elavator pitches.
 ## Setup/Installation Requirements
 * Clone the project
