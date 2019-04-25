@@ -57,6 +57,8 @@ ul li a{
 }
 #user{
   text-decoration: none;
+  background-color: white;
+  border-radius: 20px;
 }
 #post-title{
   text-decoration: underline;
