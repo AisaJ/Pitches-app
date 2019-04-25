@@ -85,7 +85,7 @@ def update_pic(uname):
 
   return redirect(url_for('main.profile',uname=uname))
 
-@main.route('/reviews/<int:id>',methods=['GET','POST'])
+@main.route('/comments/<int:id>',methods=['GET','POST'])
 def comment_review(id):
   comment = CommentForm()
 

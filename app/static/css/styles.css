@@ -71,3 +71,9 @@ ul li a{
 .post-card{
   margin-top: 1%;
 }
+#p-cat{
+  margin-left: 30%;
+  margin-top: 1%;
+  border: 3px solid #cd853f;
+  padding: 2%;
+}
