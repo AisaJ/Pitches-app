@@ -1,8 +1,8 @@
 from . import main
 from flask import render_template,request,redirect,url_for,abort,flash
-from ..models import Pitch,User
+from ..models import Pitch,User,Comment
 from flask_login import login_required,current_user
-from .forms import PitchForm,UpdateProfile
+from .forms import PitchForm,UpdateProfile,CommentForm
 from .. import db
 import markdown2
 
@@ -35,7 +35,7 @@ def new_pitch():
     category = form.category.data
     pitch = form.pitch.data
     author = current_user
-    new_pitch = Pitch(title=title,category=category,pitch=pitch author=current_user._get_current_object().id)
+    new_pitch = Pitch(title=title,category=category,pitch=pitch,author=current_user._get_current_object().id)
 
     db.session.add(new_pitch)
     db.session.commit()
@@ -87,9 +87,22 @@ def update_pic(uname):
 
 @main.route('/reviews/<int:id>',methods=['GET','POST'])
 def comment_review(id):
-  review=Pitch.query.get(id)
-  if review is None:
+  comment = CommentForm()
+
+  if comment.validate_on_submit():
+    content = comment.comment.data
+    
+    new_post = Comment(comment=content)
+
+    db.session.add(new_post)
+    db.session.commit()
+
+  post = 'Post Your Comment'
+  pitch=Pitch.query.get(id)
+  user=User.query.get(id)
+  comments = Comment.query.all()
+  if pitch is None:
     abort(404)
         
-
-  return render_template('reviews.html')
+  # format_comment = markdown2.markdown(comment.,extras=["code-friendly", "fenced-code-blocks"])
+  return render_template('comments.html',comment_form=comment,post=post,comments=comments,pitch=pitch,user=user)

@@ -13,7 +13,7 @@ body{
   height: 25rem;
 }
 .navbar-dark{
-  background-color: #cd853f ;
+  background-color: #cd853f;
 }
 #intro{
   margin-top: 2%;
@@ -57,4 +57,17 @@ ul li a{
 }
 #user{
   text-decoration: none;
+}
+#post-title{
+  text-decoration: underline;
+  font-weight: bold;
+}
+#post-section{
+  border: 1px solid #cd853f;
+}
+.comment-area{
+  margin-top: 2%;
+}
+.post-card{
+  margin-top: 1%;
 }
