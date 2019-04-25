@@ -86,3 +86,9 @@ ul li a{
   border-radius: 20px;
   font-weight: bold;
 }
+.user-pitches{
+  background-image: url('../images/paint-drip.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
