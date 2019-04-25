@@ -36,6 +36,7 @@ body{
   text-align: center;
   font-weight: bold;
   clear: left;
+  color: whitesmoke;
 }
 .card-title{
   text-decoration: underline;
@@ -80,6 +81,7 @@ ul li a{
   margin-top: 1%;
   border: 3px solid #cd853f;
   padding: 2%;
+  color: whitesmoke;
 }
 #user{
   background-color: white;
@@ -92,4 +94,5 @@ ul li a{
   background-size: cover;
   background-position: center;
   z-index: -1;
+  
 }
