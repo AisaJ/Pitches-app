@@ -30,11 +30,11 @@
       </ul>
 
       {% if current_user.is_authenticated %}
-      <ul id="user">
+      <ul>
         <li><a href="{{url_for('main.profile',uname=current_user.username)}}"><p>Profile</p></a></li>
         <li><a href="{{url_for('auth.logout')}}"><p>Sign out</p></a></li>
         {% else %}
-        <li><a href="{{url_for('auth.login')}}"><p>Sign in</p></a></li>
+        <li><a href="{{url_for('auth.login')}}" id="user"><p>Sign in</p></a></li>
         {% endif %}
       </ul>
     </div>

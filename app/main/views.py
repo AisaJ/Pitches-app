@@ -4,6 +4,7 @@ from ..models import Pitch,User
 from flask_login import login_required,current_user
 from .forms import PitchForm,UpdateProfile
 from .. import db
+import markdown2
 
 
 @main.route('/')
@@ -13,7 +14,7 @@ def index():
 
   return render_template('index.html',title = title)
 
-@main.routed('/pitch',methods= ['POST'])
+@main.route('/pitch')
 def pitches():
   pitches = Pitch.query.all()
   brand = Pitch.query.filter_by(category='Brand').all()
@@ -21,7 +22,7 @@ def pitches():
   project = Pitch.query.filter_by(category='Project').all()
   investor = Pitch.query.filter_by(category='Investor').all()
 
-  return render_template('pitch.html',pitch_form=form, pitches=pitches,brand=brand,product=product)
+  return render_template('pitch.html',pitches=pitches,brand=brand,product=product,project=project,investor=investor)
 
 
 @main.route('/pitch/new',methods = ['GET','POST'])
@@ -34,7 +35,7 @@ def new_pitch():
     category = form.category.data
     pitch = form.pitch.data
     author = current_user
-    new_pitch = Pitch(title=title,category=category,pitch=pitch,author=current_user._get_current_object().id)
+    new_pitch = Pitch(title=title,category=category,pitch=pitch author=current_user._get_current_object().id)
 
     db.session.add(new_pitch)
     db.session.commit()
@@ -42,7 +43,7 @@ def new_pitch():
     flash('Awesome! Pitch created','success')
     return redirect(url_for('main.pitches',id=new_pitch.id))
 
-  return render_template('n_pitch.html',title='Add Your Pitch')
+  return render_template('n_pitch.html',title='Add Your Pitch',pitch_form=form)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -83,3 +84,12 @@ def update_pic(uname):
     db.session.commit()
 
   return redirect(url_for('main.profile',uname=uname))
+
+@main.route('/reviews/<int:id>',methods=['GET','POST'])
+def comment_review(id):
+  review=Pitch.query.get(id)
+  if review is None:
+    abort(404)
+        
+
+  return render_template('reviews.html')
