@@ -13,6 +13,17 @@ def index():
 
   return render_template('index.html',title = title)
 
+@main.routed('/pitch',methods= ['POST'])
+def pitches():
+  pitches = Pitch.query.all()
+  brand = Pitch.query.filter_by(category='Brand').all()
+  product = Pitch.query.filter_by(category='Product').all()
+  project = Pitch.query.filter_by(category='Project').all()
+  investor = Pitch.query.filter_by(category='Investor').all()
+
+  return render_template('pitch.html',pitch_form=form, pitches=pitches,brand=brand,product=product)
+
+
 @main.route('/pitch/new',methods = ['GET','POST'])
 @login_required
 def new_pitch():
@@ -29,12 +40,9 @@ def new_pitch():
     db.session.commit()
 
     flash('Awesome! Pitch created','success')
-    return redirect(url_for('main.new_pitch',id=new_pitch.id))
+    return redirect(url_for('main.pitches',id=new_pitch.id))
 
-  pitches = Pitch.query.all()
-  brand = Pitch.query.filter_by(category='Brand').all()
-  product = Pitch.query.filter_by(category='Product').all()
-  return render_template('pitch.html',title='Add Your Pitch',pitch_form=form, pitches=pitches,brand=brand,product=product)
+  return render_template('n_pitch.html',title='Add Your Pitch')
 
 @main.route('/user/<uname>')
 def profile(uname):
