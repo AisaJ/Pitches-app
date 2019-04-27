@@ -62,7 +62,7 @@ class Comment(db.Model):
   comment = db.Column(db.String(255))
   title = db.Column(db.Integer,db.ForeignKey('pitches.id'))
   poster = db.Column(db.Integer,db.ForeignKey('users.id'))
-
+  
   def save_comment(self):
     db.session.add(self)
     db.session.commit()
